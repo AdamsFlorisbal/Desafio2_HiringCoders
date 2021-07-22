@@ -1,11 +1,15 @@
+import React from 'react';
 import './App.css';
+import { BrowserRouter } from 'react-router-dom'
+
+import Routes from './Routes'
 
 function App() {
+  
   return (
-    <div class="App App-header">     
-      <input className="button button-size" type="submit" value="Clientes" />
-      <input className="button button-size" type="submit" value="Produtos" />
-    </div>
+    <BrowserRouter>
+      <Routes/>
+    </BrowserRouter>
 );
 }
 
