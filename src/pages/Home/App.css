@@ -1,8 +1,18 @@
 .button-size {
+  font-size: x-large;
+  font-style: normal;
+  display: flex;
+  background-color: #a1a6af;
   width: 250px;
   height: 160px;
+  justify-content: center;
   text-align: center;
   font-size: x-large;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 10px;
+  border-style: groove;
+  color: rgb(5, 5, 5);
 }
 .App {
   text-align: center;
