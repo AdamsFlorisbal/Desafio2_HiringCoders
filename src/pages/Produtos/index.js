@@ -33,7 +33,7 @@ function Page() {
     return(
         <div class="App-color">
             <div class="App-cliente">
-                <h6>CADASTRE O CLIENTE</h6> 
+                <h6>CADASTRE O PRODUTO</h6> 
                 <form class="App-form" onSubmit={onSubmit}>
                     <input value={nome} onChange={handleNome} placeholder="Descrição do produto"/>
                     <input value={quantidade} onChange={handleQuantidade} placeholder="Quantidade" />
