@@ -1,42 +1,60 @@
 import React from 'react';
 import './App.css';
-const Page = () => {
+import { useState } from 'react';
+
+function Page() {
+    const [nome, setNome] = useState("");
+    const [cpf, setCpf] = useState("");
+    const [endereco, setEndereco] = useState("");
+    const [telefone, setTelefone] = useState("");
+    const [email, setEmail] = useState("");
+
+    const handleNome = (e) => {
+        setNome(e.target.value);
+    }
+    const handleCpf = (e) => {
+        setCpf(e.target.value);
+    }
+    const handleEndreco = (e) => {
+        setEndereco(e.target.value);
+    }
+    const handleTelefone = (e) => {
+        setTelefone(e.target.value);
+    }
+    const handleEmail = (e) => {
+        setEmail(e.target.value);
+    }
+
+    const onSubmit = (e) => {
+        e.preventDefault();
+
+        const data = {
+            nome,
+            cpf,
+            endereco,
+            telefone,
+            email,
+        };
+
+        localStorage.setItem("lead", JSON.stringify(data));
+    };
+
     return(
         <div class="App-color">
             <div class="App-cliente">
                 <h6>CADASTRE O CLIENTE</h6> 
-                <form class="App-form" id="formCliente">
-                    <input type="text" placeholder="Name" id="nome"/>
-                    <input type="text" placeholder="Cpf" id="cpf"/>
-                    <input type="text" placeholder="Endereço" id="endereco"/>
-                    <input type="text" placeholder="Telefone" id="telefone"/>
-                    <input type="text" placeholder="Email" id="email"/>
-                    <input type="submit" value="Cadastrar"/>
+                <form class="App-form" onSubmit={onSubmit}>
+                <input value={nome} onChange={handleNome} placeholder="Nome"/>
+                    <input value={cpf} onChange={handleCpf} placeholder="Cpf" />
+                    <input value={endereco} onChange={handleEndreco} placeholder="Endereço" />
+                    <input value={telefone} onChange={handleTelefone} placeholder="Telefone" />
+                    <input value={email} onChange={handleEmail} placeholder="Email" />
+                    <button>ENVIAR DADOS</button>
                 </form>
             </div>
         </div>
     );
 }
-const form = document.getElementById('formCliente')
-form.addEventListener('submit', (e) => {
 
-    e.preventDefault();
-    let nome = document.getElementById('nome').value
-    let cpf = document.getElementById('cpf').value
-    let endereco = document.getElementById('endereco').value
-    let telefone = document.getElementById('telefone').value
-    let email = document.getElementById('email').value
-    let data = {
-        nome,
-        cpf,
-        endereco,
-        telefone,
-        email,
-    }
-    let convertData = JSON.stringify(data)
-
-    localStorage.setItem('lead', convertData)
-    
-})
 
 export default Page;

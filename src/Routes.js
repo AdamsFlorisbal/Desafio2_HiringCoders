@@ -5,7 +5,7 @@ import Clientes from './pages/Clientes'
 import Produtos from './pages/Produtos'
 import Home from './pages/Home'
 
-export default()=>{
+export default ()=>{
     return(
         <Switch>
             <Route exact path="/">
